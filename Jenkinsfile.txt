@@ -1,0 +1,33 @@
+pipeline {
+
+   agent any
+   
+    stages(‘clone the code from central repo’) {
+	
+    echo “downloading the code from GitHub”
+	
+    git credentialsId:‘MahendraNathReddy446’ url:‘git@github.com:MahendraNathReddy446/Pipeline-project.git’ 
+	
+    }
+	
+    stage(‘compile’) {
+   
+    echo “compiling the code”
+   
+    sh ‘mvn compile’
+	
+    }
+	
+    stage(‘package’) {
+	
+    echo “packaging the code”
+    
+	sh ‘mvn package’
+    
+	}
+      
+	  
+	  }
+	    }
+		 
+		 }
